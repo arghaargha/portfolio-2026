@@ -54,7 +54,7 @@ export default function Home() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/20 blur-[120px] rounded-full pointer-events-none" />
         <motion.div style={{ y }} className="text-center z-10 px-4">
           <div className="mb-4 inline-block px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs text-white/60">
-            ARGHA DAS • 2026
+            STEP BY STEP
           </div>
           <h1 className="text-6xl md:text-9xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40 mb-8">
             ENGINEERING<br />THE FUTURE
@@ -80,7 +80,7 @@ export default function Home() {
           </div>
           <ProjectCard title="Doc Buddy" tags={['Next.js', 'Healthcare']} description="Smart medical documentation assistant." color="blue" />
           <ProjectCard title="Memory Manager" tags={['System', 'Simulation']} description="Real-time memory allocation visualizer." color="cyan" />
-          <ProjectCard title="Antara's Gift" tags={['React', 'Three.js', 'Audio']} description="An interactive 3D birthday experience." color="rose" />
+          <ProjectCard title="Argha's Gift" tags={['React', 'Three.js', 'Audio']} description="An interactive 3D birthday experience." color="rose" />
         </div>
       </section>
 
