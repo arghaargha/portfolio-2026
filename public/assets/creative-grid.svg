@@ -1,0 +1,16 @@
+<svg width="760" height="520" viewBox="0 0 760 520" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Creative studio placeholder gallery</title>
+  <desc id="desc">A gallery-style placeholder for digital art, photography, poetry, and music.</desc>
+  <rect width="760" height="520" rx="8" fill="#FBFAF5"/>
+  <rect x="32" y="32" width="320" height="200" rx="8" fill="#10223A"/>
+  <rect x="384" y="32" width="344" height="200" rx="8" fill="#EDF6EF"/>
+  <rect x="32" y="264" width="220" height="224" rx="8" fill="#FFF8E8"/>
+  <rect x="284" y="264" width="444" height="224" rx="8" fill="#F0EEF9"/>
+  <path d="M72 178C122 112 178 176 225 112C246 84 272 78 312 108" stroke="#83DFD1" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="98" cy="82" r="22" fill="#E6B85C"/>
+  <path d="M426 88H682M426 122H640M426 156H688M426 190H592" stroke="#2B8C7F" stroke-width="8" stroke-linecap="round"/>
+  <path d="M84 356C128 312 175 312 215 356C175 400 128 400 84 356Z" fill="#E6B85C"/>
+  <circle cx="150" cy="356" r="22" fill="#10223A"/>
+  <path d="M332 344C396 288 486 406 558 330C604 282 652 310 690 352" stroke="#8E7DD7" stroke-width="9" stroke-linecap="round"/>
+  <path d="M336 416H650M336 448H594" stroke="#10223A" stroke-opacity="0.55" stroke-width="8" stroke-linecap="round"/>
+</svg>

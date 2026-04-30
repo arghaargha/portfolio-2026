@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Antara Chakraborty Portfolio
 
-## Getting Started
+Professional biotechnology portfolio built with Next.js, TypeScript, Tailwind CSS, Motion, and a serverless contact backend.
 
-First, run the development server:
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The local `.env.local` uses `CONTACT_DRY_RUN=true`, so contact form submissions return success without sending email.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contact Backend
 
-## Learn More
+The contact form posts to `POST /api/contact`.
 
-To learn more about Next.js, take a look at the following resources:
+Production email delivery uses Resend. Add these environment variables in Vercel or your hosting provider:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+RESEND_API_KEY=your_resend_api_key
+CONTACT_TO_EMAIL=antarachakraborty030@gmail.com
+CONTACT_FROM_EMAIL=Antara Chakraborty Portfolio <hello@your-verified-domain.com>
+CONTACT_DRY_RUN=false
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Notes:
 
-## Deploy on Vercel
+- `CONTACT_FROM_EMAIL` must be a sender verified in Resend.
+- Keep `CONTACT_DRY_RUN=false` in production.
+- The form includes server-side validation and a hidden honeypot field for basic spam protection.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Verification
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm test -- --run
+npm run lint
+npm run typecheck
+npm run build
+```
+
+## Deploy
+
+Recommended hosting: Vercel.
+
+```bash
+npx vercel
+npx vercel env add RESEND_API_KEY production
+npx vercel env add CONTACT_TO_EMAIL production
+npx vercel env add CONTACT_FROM_EMAIL production
+npx vercel env add CONTACT_DRY_RUN production
+npx vercel --prod
+```
+
+Set `CONTACT_DRY_RUN` to `false` for production.

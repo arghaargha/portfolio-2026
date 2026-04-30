@@ -1,0 +1,23 @@
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Professional portrait placeholder</title>
+  <desc id="desc">A refined placeholder portrait with biotechnology and data motifs.</desc>
+  <rect width="640" height="640" rx="8" fill="#F8F5ED"/>
+  <path d="M0 0H640V640H0V0Z" fill="url(#grid)" opacity="0.55"/>
+  <circle cx="320" cy="214" r="96" fill="#DCE8DD"/>
+  <path d="M177 566C197 443 245 360 320 360C395 360 443 443 463 566H177Z" fill="#10223A"/>
+  <path d="M230 566C246 476 276 420 320 420C364 420 394 476 410 566H230Z" fill="#2B8C7F"/>
+  <path d="M212 174C252 122 319 106 379 137C433 164 459 225 435 281" stroke="#2B8C7F" stroke-width="7" stroke-linecap="round"/>
+  <path d="M216 284C194 226 206 181 252 149" stroke="#8E7DD7" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="482" cy="150" r="13" fill="#E6B85C"/>
+  <circle cx="524" cy="212" r="9" fill="#2B8C7F"/>
+  <circle cx="116" cy="310" r="11" fill="#8E7DD7"/>
+  <path d="M430 142C461 140 486 144 513 157" stroke="#E6B85C" stroke-width="3" stroke-linecap="round"/>
+  <path d="M94 344C133 330 165 314 194 287" stroke="#8E7DD7" stroke-width="3" stroke-linecap="round"/>
+  <text x="64" y="84" fill="#10223A" font-family="Consolas, monospace" font-size="18" letter-spacing="2">ANTARA CHAKRABORTY</text>
+  <text x="64" y="112" fill="#526170" font-family="Consolas, monospace" font-size="13" letter-spacing="1">BIOINFORMATICS | AI | SUSTAINABLE BIOTECH</text>
+  <defs>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" stroke="#2B8C7F" stroke-opacity="0.16"/>
+    </pattern>
+  </defs>
+</svg>

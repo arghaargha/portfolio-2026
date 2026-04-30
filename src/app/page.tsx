@@ -1,65 +1,147 @@
-import Image from "next/image";
+import { ArrowRight, Download, Mail } from "lucide-react";
+import { AchievementCard } from "@/components/cards/achievement-card";
+import { FocusCard } from "@/components/cards/focus-card";
+import { ProjectCard } from "@/components/cards/project-card";
+import { HeroSection } from "@/components/hero/HeroSection";
+import { ButtonLink } from "@/components/ui/button-link";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { SectionShell } from "@/components/ui/section-shell";
+import { SkillMatrix } from "@/components/ui/skill-matrix";
+import { StatGrid } from "@/components/ui/stat-grid";
+import {
+  achievements,
+  focusAreas,
+  leadership,
+  profile,
+  profileStats,
+  projects,
+} from "@/data/portfolio";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <HeroSection />
+
+      <SectionShell className="bg-white">
+        <StatGrid stats={profileStats} />
+      </SectionShell>
+
+      <SectionShell className="bg-[#fbfaf5]" id="about">
+        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <SectionHeading
+            eyebrow="Profile"
+            title="Wet-lab foundations with a data-forward research direction."
+            description={profile.reflective}
+          />
+          <div className="grid gap-4 sm:grid-cols-3">
+            {focusAreas.map((focus) => (
+              <FocusCard key={focus.title} {...focus} />
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </SectionShell>
+
+      <SectionShell className="bg-white" id="research">
+        <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <SectionHeading
+            eyebrow="Research & Projects"
+            title="Evidence-led work across genomics, sustainability, and structural biology."
+            description="Each card is written in a problem, role, methods, and outcome structure so professors and recruiters can scan quickly without losing depth."
+          />
+          <ButtonLink href="/research" variant="ghost" icon={<ArrowRight size={18} aria-hidden="true" />}>
+            Open Research Page
+          </ButtonLink>
         </div>
-      </main>
-    </div>
+        <div className="grid gap-5 lg:grid-cols-3">
+          {projects.slice(0, 3).map((project) => (
+            <ProjectCard key={project.slug} project={project} />
+          ))}
+        </div>
+      </SectionShell>
+
+      <SectionShell className="bg-[#f8f5ed]">
+        <div className="mb-10">
+          <SectionHeading
+            eyebrow="Skills"
+            title="A domain matrix instead of vague percentage bars."
+            description="The portfolio groups skills by evidence and context, making the interdisciplinary profile easier to trust."
+          />
+        </div>
+        <SkillMatrix compact />
+      </SectionShell>
+
+      <SectionShell className="bg-[#10223a] text-white" id="leadership">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#83dfd1]">
+              Leadership
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-normal sm:text-4xl">
+              {leadership.title}
+            </h2>
+            <p className="mt-4 text-base leading-8 text-white/72">
+              {leadership.mission} {leadership.note}
+            </p>
+            <div className="mt-6">
+              <ButtonLink
+                href="/leadership"
+                variant="secondary"
+                icon={<ArrowRight size={18} aria-hidden="true" />}
+              >
+                Explore BIOGENIX
+              </ButtonLink>
+            </div>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {leadership.areas.map((area) => (
+              <div
+                key={area}
+                className="rounded-lg border border-white/12 bg-white/8 p-5 text-sm font-semibold"
+              >
+                {area}
+              </div>
+            ))}
+          </div>
+        </div>
+      </SectionShell>
+
+      <SectionShell className="bg-white" id="achievements">
+        <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <SectionHeading
+            eyebrow="Proof"
+            title="Patent, certifications, training, and academic milestones."
+          />
+          <ButtonLink href="/achievements" variant="ghost" icon={<ArrowRight size={18} aria-hidden="true" />}>
+            View Achievements
+          </ButtonLink>
+        </div>
+        <div className="grid gap-5 lg:grid-cols-3">
+          {achievements.slice(0, 3).map((achievement) => (
+            <AchievementCard key={achievement.title} achievement={achievement} />
+          ))}
+        </div>
+      </SectionShell>
+
+      <SectionShell className="bg-[#edf6ef]">
+        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <SectionHeading
+            eyebrow="Contact"
+            title="Let us connect around biotechnology, bioinformatics, sustainability, or student-led innovation."
+          />
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <ButtonLink href="/contact" icon={<Mail size={18} aria-hidden="true" />}>
+              Contact Me
+            </ButtonLink>
+            <ButtonLink
+              href={profile.resumeHref}
+              variant="secondary"
+              icon={<Download size={18} aria-hidden="true" />}
+            >
+              Resume
+            </ButtonLink>
+          </div>
+        </div>
+      </SectionShell>
+    </>
   );
 }
